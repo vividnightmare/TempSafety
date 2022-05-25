@@ -29,12 +29,12 @@ while True:
         for entry in entries:
             cputemp.append(entry.current)
     hightemp = max(cputemp)
-    print("Temp: " + str(hightemp) + "C")
+    print("".join(["Temp: ", str(hightemp), "C"])
 
     if hightemp >= 85:
         for proc in psutil.process_iter():
             if proc.username() == username:
-                print("Killing process " + str(proc.pid))
+                print("".join(["Killing process ", str(proc.pid)])
                 os.kill(proc.pid, 9)
     
     print("----------")
